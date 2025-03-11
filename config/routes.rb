@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   get "ui_kit", to: "pages#ui_kit", as: :ui_kit
+  resources :ideas, only: %i[index]
 end
