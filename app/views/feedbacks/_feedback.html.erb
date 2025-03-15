@@ -7,7 +7,9 @@
     <% if feedback.user.avatar.attached? %>
       <%= cl_image_tag feedback.user.avatar.key, width: 20, height: 20, crop: :thumb, gravity: :face, class: "avatar-mini", alt: "User avatar" %>
     <% else %>
-      <%= image_tag "Avatar_placeholder.png", width: 20, height: 20, class: "avatar-mini", alt: "User avatar placeholder" %>
+      <div class="avatar-initials avatar-mini">
+        <%= "#{current_user.first_name.first}#{current_user.last_name.first}" %>
+      </div>
     <% end %>
     <p><strong><%= feedback.user.first_name %>:</strong> <%= feedback.content %></p>
   </div>

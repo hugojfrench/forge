@@ -2,6 +2,8 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  font-size: 50px;
 }
 
 .avatar-mini {
@@ -9,6 +11,7 @@
   height: 20px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  font-size: 20px;
 }
 
 .avatar-med {
@@ -16,23 +19,23 @@
   height: 60px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  font-size: 60px;
 }
 
 .avatar-large {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  // TODO: Fix box shadow - it creates a border at the same time?!
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 150px;
 }
 
-// Avatar initials style
+// Avatar initials modifier
 .avatar-initials {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  font-weight: 600;
+  font-weight: 700;
   font-family: inherit;
   background-color: $primary;
   color: $success;
@@ -40,4 +43,6 @@
   overflow: hidden;
   white-space: nowrap;
   user-select: none;
+  font-size: 0.4em; // Scales with avatar size!
 }
+

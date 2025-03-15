@@ -21,7 +21,9 @@
       <% if @post.idea.user.avatar.attached? %>
         <%= cl_image_tag @post.idea.user.avatar.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar-large", alt: "User avatar" %>
       <% else %>
-        <%= image_tag "Avatar_placeholder.png", width: 150, height: 150, class: "avatar-large", alt: "User avatar placeholder" %>
+        <div class="avatar-initials avatar-large">
+          <%= "#{current_user.first_name.first}#{current_user.last_name.first}" %>
+        </div>
       <% end %>
 
       <!-- Upvote -->
