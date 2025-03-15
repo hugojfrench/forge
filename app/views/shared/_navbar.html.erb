@@ -28,7 +28,9 @@
               <% if current_user.avatar.attached? %>
                 <%= cl_image_tag current_user.avatar.key, width: 50, height: 50, crop: :thumb, gravity: :face, class: "avatar", alt: "User avatar" %>
               <% else %>
-                <%= image_tag "Avatar_placeholder.png", width: 50, height: 50, class: "avatar", alt: "User avatar placeholder" %>
+                <div class="avatar-initials avatar">
+                  <%= "#{current_user.first_name.first}#{current_user.last_name.first}" %>
+                </div>
               <% end %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
