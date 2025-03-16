@@ -133,6 +133,22 @@
   top: 100px; // account for the navbar being sticky as well
 }
 
+.share-btn {
+  i {
+    color: $success;
+
+    &:hover {
+      color: mix($success, black, 90%);
+      // transform: translate(20% -20%);
+      transform: scale(1.5) translate(20%, -20%);
+    }
+  }
+
+  background: none;
+  border: none;
+}
+
+
 .edit-form button {
   border: 0;
   background-color: inherit;
@@ -196,7 +212,7 @@
 .custom-file-upload-button {
   position: absolute;
   top: 10px;
-  right: 50px;
+  right: 80px;
   margin-top: 16px;
   display: inline-flex;
   align-items: center;
@@ -209,6 +225,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-size: 14px;
+  border: 1px solid $danger;
 
   &:hover {
     background-color: mix($primary, black, 90%);

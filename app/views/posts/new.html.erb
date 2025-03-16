@@ -1,6 +1,11 @@
 <h1>Create your post</h1>
 
 <%= form_with model: [@idea, @post], class: "edit-form", data: { controller: "form-filter", action: "submit->form-filter#prepare" } do |form_post| %>
+  <%# Add share button %>
+  <div class="flex-column edit-form-buttons">
+    <%= link_to "<i class='fa-solid fa-rotate-left'></i>".html_safe, edit_idea_path(@idea) %>
+  </div>
+
   <div class="flex-column edit-form-inputs">
     <%# Display the fields from Post model (copied from Idea) %>
     <%= form_post.text_field :title, class: "new-form-input edit-form-title", readonly: true %>
@@ -32,15 +37,12 @@
         <i class="fa-solid fa-upload"></i> Upload Image
       </label>
     </div>
-    
+
   </div>
 
   <%# Add share button %>
-  <div class="flex-column edit-form-buttons">
+  <div class="flex-column edit-form-buttons share-btn">
     <%= form_post.button "<i class='fa-solid fa-paper-plane'></i>".html_safe, type: "submit" %>
   </div>
 
 <% end %>
-
-
-<%= link_to "Back to idea", edit_idea_path(@idea) %>
