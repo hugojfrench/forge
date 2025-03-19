@@ -1,9 +1,34 @@
 <h1>Add your new idea</h1>
 
-<%= render "form", idea: @idea  %>
 
         <ul class="list-unstyled mb-3">
           <div class="spacing-element"></div>
-            <li class="mb-1"><i class="fa-solid fa-lightbulb"></i> Top tip: Once you have added your idea, save it in the top right to generate the document structure.</li>
+            <li class="mb-1"><i class="fa-solid fa-lightbulb"></i> Top tip: Once you have added your idea, use the wand to autocomplet your document.</li>
           <div class="spacing-element"></div>
         </ul>
+
+<%= form_with model: @idea, class: "edit-form" do |form_idea| %>
+  <div class="flex-column edit-form-inputs">
+    <%# Display the fields from Idea model %>
+    <%= form_idea.text_field :title, placeholder:"title", class: "edit-form-input edit-form-title" %>
+    <%= form_idea.text_field :tagline, placeholder:"tagline", class: "edit-form-input edit-form-tagline" %>
+    <%= form_idea.text_area :summary, placeholder:"summary", class: "edit-form-input edit-form-summary", rows: 5 %>
+
+    <%# Display the fields from IdeaSections model %>
+    <%= form_idea.fields_for :idea_sections, @idea.sections do |idea_section_fields| %>
+      <% last_input = idea_section_fields.object == @last_section %>
+      <%= idea_section_fields.text_field :heading, class: "edit-form-input edit-form-heading" %>
+      <%= idea_section_fields.text_area :content, class: "edit-form-input .edit-form-content #{'edit-form-last' if last_input}", rows: 5 %>
+    <% end %>
+  </div>
+
+  <%# Add submit button %>
+  <div class="flex-column edit-form-buttons btn btn-primary">
+    <div class="edit-form-button" >
+      <%= form_idea.button type: "submit", name: "pressed_button", value: "save" do %>
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <span class="edit-form-button-description">Autocomplete </span>
+      <% end %>
+    </div>
+  </div>
+<% end %>
