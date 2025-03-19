@@ -24,12 +24,12 @@
 
 
   <%# Add submit button %>
-  <div class="flex-column edit-form-buttons btn btn-primary">
-    <div class="edit-form-button" >
+  <%# <div class="flex-column edit-form-buttons btn btn-primary"> %>
+    <div class="icon-button btn btn-primary" >
       <%= form_idea.button type: "submit", name: "pressed_button", value: "save" do %>
         <i class="fa-solid fa-wand-magic-sparkles"></i>
-        <span class="edit-form-button-description"> </span>
+        <span class="icon-button-description">Complete</span>
       <% end %>
     </div>
-  </div>
+  <%# </div> %>
 <% end %>
