@@ -63,3 +63,22 @@ body {
 a.avatar.dropdown-toggle::after {
   display: none;
 }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.left-side {
+  /* Left side content */
+}
+
+.right-side {
+  /* Right side content */
+}
+
+.nav-item {
+  list-style-type: none;
+}
