@@ -29,6 +29,10 @@ class IdeasController < ApplicationController
     end
   end
 
+  def new
+    @idea = Idea.new
+  end
+
   private
 
   def set_idea

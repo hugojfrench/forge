@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :initial_questions, only: [:show, :create, :new]
   resources :expanded_questions, only: [:show, :create, :new]
 
-  resources :ideas, only: %i[index edit update] do
+  resources :ideas, only: %i[index edit update new] do
     resources :posts, only: [:new, :create]
   end
 
