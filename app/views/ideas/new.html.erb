@@ -1,0 +1,35 @@
+<h1>Add your own idea</h1>
+
+
+        <ul class="list-unstyled mb-3">
+          <div class="spacing-element"></div>
+            <li class="mb-1"><i class="fa-solid fa-lightbulb"></i> Top tip: Once you have added your idea, use the wand to autocomplete your document.</li>
+          <div class="spacing-element"></div>
+        </ul>
+
+<%= form_with model: @idea, class: "edit-form" do |form_idea| %>
+  <div class="flex-column edit-form-inputs">
+    <%# Display the fields from Idea model %>
+    <%= form_idea.text_field :title, placeholder:"Add a title", class: "edit-form-input edit-form-title" %>
+    <%= form_idea.text_field :tagline, placeholder:"Add a tagline", class: "edit-form-input edit-form-tagline" %>
+    <%= form_idea.text_area :summary, placeholder:"Add a breif summary", class: "edit-form-input edit-form-summary", rows: 5 %>
+
+    <%# Display the fields from IdeaSections model %>
+    <%= form_idea.fields_for :idea_sections, @idea.sections do |idea_section_fields| %>
+      <% last_input = idea_section_fields.object == @last_section %>
+      <%= idea_section_fields.text_field :heading, class: "edit-form-input edit-form-heading" %>
+      <%= idea_section_fields.text_area :content, class: "edit-form-input .edit-form-content #{'edit-form-last' if last_input}", rows: 5 %>
+    <% end %>
+  </div>
+
+
+  <%# Add submit button %>
+  <div class="flex-column icon-button-container">
+    <div class="icon-button btn btn-primary">
+      <%= form_idea.button type: "submit", name: "pressed_button", value: "save" do %>
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <span class="icon-button-description">Complete</span>
+      <% end %>
+    </div>
+  </div>
+<% end %>
